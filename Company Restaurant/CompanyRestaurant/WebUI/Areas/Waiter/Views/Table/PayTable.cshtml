@@ -1,0 +1,80 @@
+﻿@model DataAccess.Entity.Table
+@{
+    ViewData["Title"] = "PayTable";
+    Layout = "~/Areas/Waiter/Views/Shared/_WaiterLayout.cshtml";
+}
+
+<body class="ms-body ms-aside-left-open ms-primary-theme ms-has-quickbar">
+    <main class="body-content">
+        <div class="ms-panel-header">
+            <h6>Masa <strong>@Model.TableNo </strong> BİLGİLERİ</h6>
+            <a class="btn btn-primary float-right" href="~/Waiter/Table/Index">Genel Masaları Görüntüle</a>
+        </div>
+        <div class="ms-panel-body">
+            <div class="card">
+                <form asp-action="PayTable" method="POST">
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <div class="col-md-12 mb-2">
+                                <label asp-for="CompanyName"><strong>  Sipariş Numarası:</strong></label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                @Html.ValueFor(x => x.Id)
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="col-md-12 mb-2 float-right">
+                                <label asp-for="ContactName"><strong>  Tarih:</strong></label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                @Html.ValueFor(x => x.CreatedDate)
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="col-md-12 mb-2">
+                                <label asp-for="ContactTitle"><strong>  Masa Numarası:</strong></label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                @Html.ValueFor(x => x.TableNo)
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="col-md-12 mb-2">
+                                <label asp-for="Phone"><strong>  Personel:</strong></label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                @Html.ValueFor(x => x.EmployeeId)
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <div class="col-md-12 mb-2">
+                                <label asp-for="Fax"><strong>  Siparişler:</strong></label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                @Html.ValueFor(x => x)
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="col-md-12 mb-2">
+                                <label asp-for="Adress"><strong>  TUTAR:</strong></label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                @Html.ValueFor(x => x)
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-1">
+                            <label for="validationCustom18">Masa Kapama Tarihi</label>
+                            <input name="CloseDate" type="datetime" class="form-control" value="@DateTime.Now" />
+                           
+                        </div>
+                        <button class="btn btn-primary float-end" type="submit">Ödeme Yapıldı(Tıkla!)</button>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+

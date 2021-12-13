@@ -1,0 +1,22 @@
+﻿@model DataAccess.Entity.StorageCategory
+@{
+    ViewData["Title"] = "DeleteStorageCategory";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main class="body-content ">
+    <div class="container">
+        <div class="form-row">
+            <div class="panel">
+                <div class="alert alert-danger">
+                    <form asp-action="DeleteStorageCategory" method="POST">
+                        <h2>@Model.CategoryName</h2>
+                        <span>Silmek istediğinize emin misiniz?</span>
+                        <button type="submit" class="btn btn-danger"> Evet Sil</button>
+                        <a href="~/Admin/StorageCategory/Index" class="btn">İptal</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,109 @@
+﻿@model DataAccess.Entity.Supplier
+@{
+    ViewData["Title"] = "GetSupplier";
+    Layout = "~/Areas/WarehouseAttendant/Views/Shared/_WarehouseAttendantLayout.cshtml";
+}
+
+<main class="body-content">
+    <div class="ms-panel-header">
+        <h6>@Model.CompanyName BİLGİLERİ</h6>
+        <a class="btn btn-primary float-right" href="~/WarehouseAttendant/Supplier/Index">Tedarikçi Listesi</a>
+    </div>
+    <div class="ms-panel-body">
+        <div class="card">
+            <form asp-action="GetSupplier" method="POST">
+                <div class="form-row">
+                    <div class="col-md-12 mb-3">
+                        <div class="col-md-12 mb-2">
+                            <label asp-for="CompanyName"><strong>  TEDARİKÇİ ŞİRKET ADI :</strong></label>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            @Html.ValueFor(x => x.CompanyName)
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="col-md-12 mb-2">
+                            <label asp-for="ContactName"><strong>  KİŞİ ADI :</strong></label>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            @Html.ValueFor(x => x.ContactName)
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="col-md-12 mb-2">
+                            <label asp-for="ContactTitle"><strong>  ÜNVAN :</strong></label>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            @Html.ValueFor(x => x.ContactTitle)
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="col-md-12 mb-2">
+                            <label asp-for="Phone"><strong>  TELEFON NUMARASI :</strong></label>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            @Html.ValueFor(x => x.Phone)
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <div class="col-md-12 mb-2">
+                            <label asp-for="Fax"><strong>  FAX :</strong></label>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            @Html.ValueFor(x => x.Fax)
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="col-md-12 mb-2">
+                            <label asp-for="Adress"><strong>  ADRES :</strong></label>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            @Html.ValueFor(x => x.Adress)
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="col-md-12 mb-2">
+                            <label asp-for="Country"><strong>  ÜLKE :</strong></label>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            @Html.ValueFor(x => x.Country)
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="col-md-12 mb-2">
+                            <label asp-for="City"><strong>  ŞEHİR :</strong></label>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            @Html.ValueFor(x => x.City)
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3 ">
+                        <div class="col-md-12 mb-2">
+                            <label asp-for="PostalCode"><strong>  POSTA KODU :</strong></label>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            @Html.ValueFor(x => x.PostalCode)
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="col-md-12 mb-2">
+                            <label asp-for="HomePage"><strong>  SİTE LİNK :</strong></label>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            @Html.ValueFor(x => x.HomePage)
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-1">
+                        <a href="~/WarehouseAttendant/Supplier/UpdateSupplier/@Model.Id" class="btn btn-primary float-right">Düzenle</a>
+
+                    </div>
+
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</main>
+

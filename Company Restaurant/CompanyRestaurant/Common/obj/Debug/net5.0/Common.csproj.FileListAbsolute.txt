@@ -1,0 +1,12 @@
+D:\Kadir\Company Restaurant\CompanyRestaurant\Common\bin\Debug\net5.0\Common.deps.json
+D:\Kadir\Company Restaurant\CompanyRestaurant\Common\bin\Debug\net5.0\Common.dll
+D:\Kadir\Company Restaurant\CompanyRestaurant\Common\bin\Debug\net5.0\ref\Common.dll
+D:\Kadir\Company Restaurant\CompanyRestaurant\Common\bin\Debug\net5.0\Common.pdb
+D:\Kadir\Company Restaurant\CompanyRestaurant\Common\obj\Debug\net5.0\Common.csproj.AssemblyReference.cache
+D:\Kadir\Company Restaurant\CompanyRestaurant\Common\obj\Debug\net5.0\Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kadir\Company Restaurant\CompanyRestaurant\Common\obj\Debug\net5.0\Common.AssemblyInfoInputs.cache
+D:\Kadir\Company Restaurant\CompanyRestaurant\Common\obj\Debug\net5.0\Common.AssemblyInfo.cs
+D:\Kadir\Company Restaurant\CompanyRestaurant\Common\obj\Debug\net5.0\Common.csproj.CoreCompileInputs.cache
+D:\Kadir\Company Restaurant\CompanyRestaurant\Common\obj\Debug\net5.0\Common.dll
+D:\Kadir\Company Restaurant\CompanyRestaurant\Common\obj\Debug\net5.0\ref\Common.dll
+D:\Kadir\Company Restaurant\CompanyRestaurant\Common\obj\Debug\net5.0\Common.pdb

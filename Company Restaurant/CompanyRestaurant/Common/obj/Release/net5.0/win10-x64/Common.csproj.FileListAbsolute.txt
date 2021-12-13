@@ -1,0 +1,12 @@
+D:\Kadir\Company Restaurant\CompanyRestaurant\Common\bin\Release\net5.0\win10-x64\Common.deps.json
+D:\Kadir\Company Restaurant\CompanyRestaurant\Common\bin\Release\net5.0\win10-x64\Common.dll
+D:\Kadir\Company Restaurant\CompanyRestaurant\Common\bin\Release\net5.0\win10-x64\ref\Common.dll
+D:\Kadir\Company Restaurant\CompanyRestaurant\Common\bin\Release\net5.0\win10-x64\Common.pdb
+D:\Kadir\Company Restaurant\CompanyRestaurant\Common\obj\Release\net5.0\win10-x64\Common.csproj.AssemblyReference.cache
+D:\Kadir\Company Restaurant\CompanyRestaurant\Common\obj\Release\net5.0\win10-x64\Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kadir\Company Restaurant\CompanyRestaurant\Common\obj\Release\net5.0\win10-x64\Common.AssemblyInfoInputs.cache
+D:\Kadir\Company Restaurant\CompanyRestaurant\Common\obj\Release\net5.0\win10-x64\Common.AssemblyInfo.cs
+D:\Kadir\Company Restaurant\CompanyRestaurant\Common\obj\Release\net5.0\win10-x64\Common.csproj.CoreCompileInputs.cache
+D:\Kadir\Company Restaurant\CompanyRestaurant\Common\obj\Release\net5.0\win10-x64\Common.dll
+D:\Kadir\Company Restaurant\CompanyRestaurant\Common\obj\Release\net5.0\win10-x64\ref\Common.dll
+D:\Kadir\Company Restaurant\CompanyRestaurant\Common\obj\Release\net5.0\win10-x64\Common.pdb

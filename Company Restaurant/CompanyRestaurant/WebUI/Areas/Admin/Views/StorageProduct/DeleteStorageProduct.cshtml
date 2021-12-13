@@ -1,0 +1,24 @@
+﻿@model DataAccess.Entity.StorageProduct
+@{
+    ViewData["Title"] = "DeleteStorageProduct";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main class="body-content ">
+    <div class="container">
+        <div class="form-row">
+            <div class="panel">
+                <div class="alert alert-danger">
+                    <form asp-action="DeleteMenuCatalog" method="POST">
+                        <h2>@Model.StorageProductName</h2>
+                        <span>Silmek istediğinize emin misiniz?</span>
+                        <button type="submit" class="btn btn-danger"> Evet Sil</button>
+                        <a href="~/Admin/StorageProduct/Index" class="btn">İptal</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+

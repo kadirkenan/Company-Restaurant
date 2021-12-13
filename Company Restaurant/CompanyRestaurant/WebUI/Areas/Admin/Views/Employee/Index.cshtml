@@ -1,0 +1,61 @@
+﻿@model List<DataAccess.Entity.Employee>
+@{
+    ViewData["Title"] = "EmployeeList";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<main class="body-content">
+    <div class="ms-content-wrapper box">
+
+        <div class="row">
+            <div class="col-md-9">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="~/Admin/Home"><i class="material-icons">home</i> AnaSayfa</a></li>
+                        <li class="breadcrumb-item"><a href="#">Personel</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Personel</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-md-3">
+                <a class="btn btn-primary float-right" href="~/Admin/Employee/AddEmployee" >Personel Kaydet</a>
+            </div>
+            @foreach (var employee in Model)
+             {
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="ms-card">
+                        <div class="ms-card-img">
+                            <img class="catalogPicture" src="~/Content/Photo/@employee.Photo">
+                        </div>
+                        <div class="ms-card-body ">
+                            <div class="wrapper-new2 ">
+                                <h6>@employee.FirstName @employee.LastName</h6>
+
+                            </div>
+                            <div class="wrapper-new1">
+                                <span>@employee.Title </span>
+                            </div>
+                            
+                            <div class="wrapper-new1">
+                                <span>@employee.HomePhone </span>
+                            </div>
+                            
+                                <a href="~/Admin/Employee/GetEmployee/@employee.Id" class="btn  btn-sm btn-primary ">Personel Bilgileri Gör</a>
+                            
+                                
+                                <a href="~/Admin/Employee/UpdateEmployee/@employee.Id" class="btn  btn-sm btn-gradient-info ">Bilgileri Düzenle</a>
+                            
+                            <div>
+                                <a href="~/Admin/Employee/DeleteEmployee/@employee.Id" class="btn  btn-sm btn-danger  ">Personel Kaydını Sil</a>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+             }
+
+        </div>
+
+    </div>
+
+</main>

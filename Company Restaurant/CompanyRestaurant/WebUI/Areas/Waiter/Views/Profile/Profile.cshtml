@@ -1,0 +1,130 @@
+﻿@model DataAccess.Entity.Employee
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Areas/Waiter/Views/Shared/_WaiterLayout.cshtml";
+}
+
+@if (Model.Nickname.ToLower() == User.Identity.Name.ToLower())
+{
+    <main class="body-content">
+        <div class="ms-panel-header">
+
+        </div>
+        <div class="ms-panel-body">
+            <div class="card">
+                <form asp-action="Profile" method="POST">
+
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <div class="col-md-12 mb-2">
+                                <label asp-for="PhotoPath"><strong>  FOTOĞRAF :</strong></label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                @Html.ValueFor(x => x.PhotoPath)
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="col-md-12 mb-2">
+                                <label asp-for="IdentityNo"><strong>  KİMLİK NUMARASI :</strong></label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                @Html.ValueFor(x => x.IdentityNo)
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="col-md-12 mb-2">
+                                <label asp-for="FirstName"><strong>  PERSONEL ADI :</strong></label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                @Html.ValueFor(x => x.FirstName)
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="col-md-12 mb-2">
+                                <label asp-for="LastName"><strong>  PERSONEL SOYADI :</strong></label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                @Html.ValueFor(x => x.LastName)
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-12 mb-3">
+                            <div class="col-md-12 mb-2">
+                                <label asp-for="TitleOfCourtesy"><strong>  Cinsiyet :</strong></label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                @Html.ValueFor(x => x.TitleOfCourtesy)
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="col-md-12 mb-2">
+                                <label asp-for="BirthDate"><strong>  DOĞUM TARİHİ :</strong></label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                @Html.ValueFor(x => x.BirthDate)
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="col-md-12 mb-2">
+                                <label asp-for="HomePhone"><strong>  TELEFON NUMARASI :</strong></label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                @Html.ValueFor(x => x.HomePhone)
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="col-md-12 mb-2">
+                                <label asp-for="Email"><strong>  MAİL ADRESİ :</strong></label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                @Html.ValueFor(x => x.Email)
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3 ">
+                            <div class="col-md-12 mb-2">
+                                <label asp-for="Adress"><strong>  ADRES :</strong></label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                @Html.ValueFor(x => x.Adress)
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="col-md-12 mb-2">
+                                <label asp-for="Country"><strong>  ÜLKE :</strong></label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                @Html.ValueFor(x => x.Country)
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="col-md-12 mb-2">
+                                <label asp-for="City"><strong>  ŞEHİR :</strong></label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                @Html.ValueFor(x => x.City)
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="col-md-12 mb-2">
+                                <label asp-for="PostalCode"><strong>  POSTA KODU :</strong></label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                @Html.ValueFor(x => x.PostalCode)
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 mb-1">
+                            <a href="~/Waiter/Profile/Edit" class="btn btn-primary float-right">Düzenle</a>
+
+                        </div>
+
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </main>
+}
+

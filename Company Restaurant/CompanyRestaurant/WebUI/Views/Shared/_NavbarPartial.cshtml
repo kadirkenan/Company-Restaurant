@@ -1,0 +1,65 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<DataAccess.Entity.AppUser> SignInManager
+<ul class="navbar-nav float-left">
+    @{ if (SignInManager.IsSignedIn(User))
+        {
+            <li class="ms-nav-item ms-nav-user dropdown">
+                <a href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img style="max-width:50px; margin-top: -7px;" src="~/hazırcss/assets/img/foodtech/customer-6.jpg" alt="people"> </a>
+                <ul class="dropdown-menu dropdown-menu-right user-dropdown" aria-labelledby="userDropdown">
+                    <li class="dropdown-menu-header">
+                        <h6 class="dropdown-header ms-inline m-0"><span class="text-disabled">Hoşgeldin, @User.Identity.Name</span></h6>
+                    </li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="dropdown-divider"></li>
+                        <li class="ms-dropdown-list">
+                            <a asp-action="Index" asp-controller="Home" asp-area="Admin" class="dropdown-item"><strong>Admin Panel </strong></a>
+                            <a asp-action="Index" asp-controller="Home" asp-area="Chef" class="dropdown-item"><strong>Chef Panel </strong></a>
+                            <a asp-action="Index" asp-controller="Home" asp-area="Waiter" class="dropdown-item"><strong>Personel Panel </strong></a>
+                            <a asp-action="Index" asp-controller="Home" asp-area="WarehoseAttendant" class="dropdown-item"><strong>Depo Sorumlu Paneli </strong></a>
+
+                            <a class="media fs-14 p-2" href="prebuilt-pages/user-profile.html"> <span><i class="flaticon-gear mr-2"></i> Hesap Ayarları</span> </a>
+                        </li>
+                        <li class="dropdown-divider"></li>
+
+                    }
+                    @if (User.IsInRole("Chef"))
+                    {
+                        <li class="ms-dropdown-list">
+                            <a asp-action="Index" asp-controller="Home" asp-area="Chef" class="dropdown-item"><strong>Chef Panel </strong></a>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                    }
+                    @if (User.IsInRole("Waiter"))
+                    {
+                        <li class="ms-dropdown-list">
+                            <a asp-action="Index" asp-controller="Home" asp-area="Waiter" class="dropdown-item"><strong>Personel Panel </strong></a>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                    }
+                    @if (User.IsInRole("WarehoseAttendant"))
+                    {
+                        <li class="ms-dropdown-list">
+                            <a asp-action="Index" asp-controller="Home" asp-area="WarehoseAttendant" class="dropdown-item"><strong>Depo Sorumlu Paneli </strong></a>
+                        </li>
+                        <li class="dropdown-divider"></li>
+
+                    }
+                    <li class="dropdown-menu-footer">
+                        <a asp-action="LogOut" asp-controller="Account" asp-route-id="@User.Identity.Name" class="ms-dropdown-item" >
+                        <i class="fas fa-sign-out-alt text-danger"></i>Çıkış Yap</a>
+                    </li>
+                </ul>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item">
+                <a asp-action="Login" asp-controller="Home" class="nav-link text-dark">
+                    <i class="fa fa-lock mr-2"></i>
+                    Giriş
+                </a>
+            </li>
+        }
+    }
+</ul>

@@ -1,0 +1,87 @@
+﻿@model List<DataAccess.Entity.Supplier>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<main class="body-content">
+    <div class="ms-content-wrapper">
+        <div class="row">
+            <div class="col-md-9">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="~/Admin/Home"><i class="material-icons">home</i> AnaSayfa</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Tedarikçi Bilgileri</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-md-3">
+                <a class="btn btn-primary float-right" href="~/Admin/Supplier/AddSupplier">Tedarikçi Ekle</a>
+            </div>
+            <div class="col-md-12">
+                <div class="col-12">
+                    <div class="ms-panel">
+                        <div class="ms-panel-header">
+                            <h6> Tedarikçi Listesi</h6>
+
+                        </div>
+                        <div class="ms-panel-body">
+
+                            <div class="table-responsive">
+                                <table class="table w-100 thead-primary dataTable no-footer" role="grid" style="width: 1099px;">
+                                    <thead>
+                                        <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="data-table-4" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Customer ID: activate to sort column descending" style="width: 156px;">
+                                                Tedarikçi ID
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="data-table-4" rowspan="1" colspan="1" aria-label="Customer Name: activate to sort column ascending" style="width: 196px;">
+                                                Tedarikçi Şirket Adı
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="data-table-4" rowspan="1" colspan="1" aria-label="Customer Name: activate to sort column ascending" style="width: 196px;">
+                                                Tedarikçi Adı
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="data-table-4" rowspan="1" colspan="1" aria-label="Location: activate to sort column ascending" style="width: 118px;">
+                                                Ünvan
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="data-table-4" rowspan="1" colspan="1" aria-label="Email ID: activate to sort column ascending" style="width: 153px;">
+                                                Telefon
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="data-table-4" rowspan="1" colspan="1" aria-label="Ordered Item: activate to sort column ascending" style="width: 162px;">
+                                                Fax
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="data-table-4" rowspan="1" colspan="1" aria-label="Bill: activate to sort column ascending" style="width: 61px;">
+                                                Site
+                                            </th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var supplier in Model)
+                                        {
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">@supplier.Id</td>
+                                            <td>@supplier.CompanyName</td>
+                                            <td>@supplier.ContactName</td>
+                                            <td>@supplier.ContactTitle</td>
+                                            <td>@supplier.Phone</td>
+                                            <td>@supplier.Fax</td>
+                                            <td>@supplier.HomePage</td>
+                                            <td><a href="~/Admin/Supplier/GetSupplier/@supplier.Id" class="btn btn-gradient-info btn-sm ">Görüntüle</a></td>
+                                            <td><a href="~/Admin/Supplier/UpdateSupplier/@supplier.Id" class="btn btn-gradient-info btn-sm ">Düzenle</a>
+                                            <a href="~/Admin/Supplier/DeleteSupplier/@supplier.Id" class="btn btn-danger btn-sm float-right">Sil</a></td>
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+

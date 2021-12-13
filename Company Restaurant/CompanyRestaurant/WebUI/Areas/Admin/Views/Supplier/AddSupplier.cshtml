@@ -1,0 +1,59 @@
+﻿@model DataAccess.Entity.Supplier
+@{
+    ViewData["Title"] = "AddSupplier";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<main class="body-content">
+
+    <div class="ms-panel-header">
+        <h6>Tedarikçi Ekleme Formu</h6>
+        <a class="btn btn-primary float-right" href="~/Admin/Supplier/Index">Tedarikçi Listesi</a>
+    </div>
+    <div class="ms-panel-body">
+        <form asp-action="AddSupplier" asp-controller="Supplier" method="POST">
+            <div class="form-row">
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Tedarikçi Şirket Adı</label>
+                    <input name="CompanyName" type="text" class="form-control" placeholder="Tedarikçi Şirket adını giriniz..." />
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Kişi Adı</label>
+                    <input name="ContactName" type="text" class="form-control" />
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Ünvan</label>
+                    <input name="ContactTitle" type="text" class="form-control" />
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Telefon Numarası</label>
+                    <input name="Phone" type="text" class="form-control" placeholder="Telefon numarası giriniz..." />
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Fax</label>
+                    <input name="Fax" type="text" class="form-control" />
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Adres</label>
+                    <input name="Adress" type="text" class="form-control" placeholder="Adres giriniz..." />
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Ülke</label>
+                    <input name="Country" type="text" class="form-control" />
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Şehir</label>
+                    <input name="City" type="text" class="form-control" />
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Posta Kodu</label>
+                    <input name="PostalCode" type="text" class="form-control" />
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Site Adı</label>
+                    <input name="HomePage" type="text" class="form-control" placeholder="Aktif Site varsa giriniz..." />
+                </div>
+                <button class="btn btn-primary float-end" type="submit">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</main>

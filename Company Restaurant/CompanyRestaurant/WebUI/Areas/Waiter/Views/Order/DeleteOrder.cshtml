@@ -1,0 +1,25 @@
+﻿@model DataAccess.Entity.CustomerOrder
+@{
+    ViewData["Title"] = "DeleteOrder";
+    Layout = "~/Areas/Waiter/Views/Shared/_WaiterLayout.cshtml";
+}
+
+
+<main class="body-content ">
+    <div class="container">
+        <div class="form-row">
+            <div class="panel">
+                <div class="alert alert-danger">
+                    <form asp-action="DeleteOrder" method="POST">
+                        <h2>Sipariş Numarası : @Model.Id Masa Numarası : @Model.TableNo</h2>
+                        <span>Silmek istediğinize emin misiniz?</span>
+                        <button type="submit" class="btn btn-danger"> Evet Sil</button>
+                        <a href="~/Waiter/Order/Index" class="btn">İptal</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+

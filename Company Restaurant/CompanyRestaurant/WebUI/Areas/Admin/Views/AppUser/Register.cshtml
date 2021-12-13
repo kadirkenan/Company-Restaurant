@@ -1,0 +1,89 @@
+﻿@model WebUI.Models.ViewModels.RegisterVM
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<main class="body-content">
+
+    <div class="ms-panel-header">
+        <h6> Kullanıcı Personel Kayıt Formu</h6>
+        <a class="btn btn-primary float-right" href="~/Admin/AppUser/Index">Kullanıcı Personel Listesi</a>
+    </div>
+    <div class="ms-panel-body">
+       
+            <div class="container">
+                <div class="card bg-light">
+                    <div asp-validation-summary="All" class="text-danger">
+                        
+                    </div>
+                    <form asp-action="Register" asp-controller="AppUser" method="post">
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                            </div>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                            <input asp-for="Email" class="form-control" placeholder="Mail adres">
+                        </div>
+
+                        
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                            </div>
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                            <input asp-for="UserName" class="form-control" placeholder="Kullanıcı Adı">
+                        </div>
+
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </div>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                            <input asp-for="Password" class="form-control" placeholder="Şifre">
+                        </div>
+
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </div>
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                            <input asp-for="ConfirmPassword" class="form-control" placeholder="Şifre(Tekrar)">
+                        </div>
+
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-paint-roller"></i>
+                                </span>
+                            </div>
+                            <label asp-for="@Model.Role"></label>
+                            <select asp-for="Input.Role" class="form-control">
+                                <option selected value="1">Visitor</option>
+                                <option value="2">Chef</option>
+                                <option value="2">Waiter</option>
+                                <option value="2">WarehouseAttendant</option>
+                                <option value="2">Admin</option>
+                            </select>
+                            <span asp-validation-for="Input.Role" class="text-danger"></span>
+                        </div>
+
+
+                        <button type="submit">Kullanıcı Oluştur</button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+   
+</main>

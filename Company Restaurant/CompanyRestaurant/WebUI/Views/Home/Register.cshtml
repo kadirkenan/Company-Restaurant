@@ -1,0 +1,91 @@
+﻿@model RegisterVM
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="card bg-light">
+        
+            <div asp-validation-summary="All" class="text-danger">
+
+            </div>
+            <form asp-action="Register" asp-controller="Home" method="post">
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-envelope"></i>
+                        </span>
+                    </div>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                    <input asp-for="Email" class="form-control" placeholder="Mail adres">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-user"></i>
+                        </span>
+                    </div>
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                    <input asp-for="UserName" class="form-control" placeholder="Kullanıcı Adı">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                    </div>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                    <input asp-for="Password" class="form-control" placeholder="Şifre">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                    </div>
+                    
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    <input asp-for="ConfirmPassword" class="form-control" placeholder="Şifre(Tekrar)">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-paint-roller"></i>
+                        </span>
+                    </div>
+
+                    <select asp-for="Role" class="form-control">
+                        <option selected value="@DataAccess.Enum.Role.Visitor">Visitor</option>
+                        <option value="@DataAccess.Enum.Role.Chef">Chef</option>
+                        <option value="@DataAccess.Enum.Role.Waiter">Waiter</option>
+                        <option value="@DataAccess.Enum.Role.WarehouseAttendant">WarehouseAttendant</option>
+                        <option value="@DataAccess.Enum.Role.Admin">Admin</option>
+                    </select>
+                    <span asp-validation-for="Role" class="text-danger"></span>
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-paint-roller"></i>
+                        </span>
+                    </div>
+
+                    <span asp-validation-for="EmployeeEmail" class="text-danger"></span>
+                        @Html.DropDownListFor(x => x.EmployeeEmail, (SelectList)ViewBag.Employee, new { @class = " form-control m-bot15" })
+                              
+                    
+                    
+                </div>
+
+                <button type="submit">Kullanıcı Oluştur</button>
+            </form>
+        
+    </div>
+
+</div>

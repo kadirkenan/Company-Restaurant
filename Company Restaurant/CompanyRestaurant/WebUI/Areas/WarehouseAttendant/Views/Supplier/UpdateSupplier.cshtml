@@ -1,0 +1,62 @@
+﻿@model DataAccess.Entity.Supplier
+@{
+    ViewData["Title"] = "UpdateSupplier";
+    Layout = "~/Areas/WarehouseAttendant/Views/Shared/_WarehouseAttendantLayout.cshtml";
+}
+
+<main class="body-content">
+
+    <div class="ms-panel-header">
+        <h6> Tedarikçi Düzenleme Formu</h6>
+        <a class="btn btn-primary float-right" href="~/WarehouseAttendant/Supplier/Index">Tedarikçi Listesi</a>
+    </div>
+    <div class="ms-panel-body">
+        <form asp-action="UpdateSupplier" method="POST">
+            <div class="form-row">
+                <div class="col-md-12 mb-3">
+                    <label asp-for="CompanyName">Tedarikçi Şirket Adı</label>
+                    @Html.TextBoxFor(x => x.CompanyName, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="ContactName">Kişi Adı</label>
+                    @Html.TextBoxFor(x => x.ContactName, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="ContactTitle">Ünvan</label>
+                    @Html.TextBoxFor(x => x.ContactTitle, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="Phone">Telefon Numarası</label>
+                    @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="Fax">Fax</label>
+                    @Html.TextBoxFor(x => x.Fax, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="Adress">Adres</label>
+                    @Html.TextBoxFor(x => x.Adress, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="Country">Ülke</label>
+                    @Html.TextBoxFor(x => x.Country, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="City">Şehir</label>
+                    @Html.TextBoxFor(x => x.City, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="PostalCode">Posta Kodu</label>
+                    @Html.TextBoxFor(x => x.PostalCode, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="HomePage">Site Adı</label>
+                    @Html.TextBoxFor(x => x.HomePage, new { @class = "form-control", type = "text" })
+                </div>
+
+                <button class="btn btn-primary float-end" type="submit">Güncelle</button>
+            </div>
+        </form>
+    </div>
+</main>
+

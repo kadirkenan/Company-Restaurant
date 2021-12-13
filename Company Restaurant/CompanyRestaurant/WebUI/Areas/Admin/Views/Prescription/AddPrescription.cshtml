@@ -1,0 +1,71 @@
+﻿@model DataAccess.Entity.Prescription
+@{
+    ViewData["Title"] = "AddPrescription";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main class="body-content">
+    <div class="ms-panel-header">
+        <h6> Menü Ürün Reçetesi Ekleme Formu</h6>
+        <a class="btn btn-primary float-right" href="~/Admin/Prescription/Index">Menü Reçete Listesi</a>
+    </div>
+    <div class="ms-panel-body">
+        <form asp-action="AddPrescription" asp-controller="Prescription" method="POST">
+            <div class="form-row">
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom22">Menü Seçiniz</label>
+                    <div class="input-group">
+                        @Html.DropDownListFor(x => x.MenuProductId, (SelectList)ViewBag.MenuProduct, new { @class = " form-control m-bot15" })
+                    </div>
+                </div>
+                <div>
+                    <label>--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</label>
+                </div>
+                <div class="row">
+                    @foreach (var item in ViewBag.MenuProduct)
+                    {
+                        @for (int i = 0; i < item.StorageProductUnits; i++)
+                        {
+                            <div class="col-md-12 mb-3">
+
+                                <label for="validationCustom22">1-<strong>Kullanılacak Ürünü Seçiniz</strong></label>
+
+                                @Html.DropDownListFor(x => x.StorageProductId, (SelectList)ViewBag.StorageProduct, new { @class = " form-control m-bot15" })
+
+
+                                <div class="col-md-12 mb-3">
+
+                                    <label for="validationCustom22"><strong>Kullanılacak Ürünün Miktarını Seçiniz</strong></label>
+
+                                    @Html.DropDownListFor(x => x.GaugeId, (SelectList)ViewBag.Gauge, new { @class = " form-control m-bot15" })
+                                    <div class="input-group col-7 mb-3">
+
+                                        <select name="Ingridients" class="form-control">
+                                            <option>@DataAccess.Enum.Ingridients.Adet</option>
+                                            <option>@DataAccess.Enum.Ingridients.Yemek_Kaşığı</option>
+                                            <option>@DataAccess.Enum.Ingridients.Çay_Kaşığı</option>
+                                            <option>@DataAccess.Enum.Ingridients.Su_Bardağı</option>
+                                            <option>@DataAccess.Enum.Ingridients.Çay_Bardağı</option>
+                                            <option>@DataAccess.Enum.Ingridients.Ml</option>
+                                            <option>@DataAccess.Enum.Ingridients.Litre</option>
+                                            <option>@DataAccess.Enum.Ingridients.Gram</option>
+                                            <option>@DataAccess.Enum.Ingridients.Kilogram</option>
+                                            <option>@DataAccess.Enum.Ingridients.Paket</option>
+                                        </select>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        }
+                    }
+
+                </div>
+
+                <button class="btn btn-primary float-end" type="submit">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</main>
+

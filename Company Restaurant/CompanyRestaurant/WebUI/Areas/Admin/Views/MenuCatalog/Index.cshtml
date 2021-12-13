@@ -1,0 +1,58 @@
+﻿@model List<DataAccess.Entity.MenuCategory>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+    <main class="body-content">
+        <div class="ms-content-wrapper box">
+        
+            <div class="row">
+                <div class="col-md-9">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb pl-0">
+                            <li class="breadcrumb-item"><a href="~/Admin/Home"><i class="material-icons">home</i> AnaSayfa</a></li>
+                            <li class="breadcrumb-item"><a href="#">Menus</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Menu Catalog</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-md-3">
+                  <a class="btn btn-primary float-right" href="~/Admin/MenuCatalog/AddMenuCatalog">Menü Cataloğu Ekle</a>
+                </div>
+
+                @foreach (var menuCategory in Model)
+                {
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="ms-card">
+                            <div class="ms-card-img">
+                                <img class="catalogPicture" src="~/Content/Picture/@menuCategory.Picture">
+                            </div>
+                            <div class="ms-card-body ">
+                                <div class="wrapper-new2 ">
+                                    <h6>@menuCategory.CategoryName</h6>
+
+                                </div>
+                                <div class="wrapper-new1">
+                                    <span>@menuCategory.Description </span>
+                                </div>
+                                                               <a href="~/Admin/MenuCatalog/UpdateMenuCatalog/@menuCategory.Id" class="btn btn-gradient-info btn-md ">Düzenle</a>
+                                <a href="~/Admin/MenuCatalog/DeleteMenuCatalog/@menuCategory.Id" class="btn btn-danger btn-md float-right">Sil</a>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <div class="col-xl-12 col-md-12">
+                    <div class="load">
+                        <i class="fas fa-redo alt  space text-muted" aria-hidden="true"></i><span class="more">Daha fazla</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+

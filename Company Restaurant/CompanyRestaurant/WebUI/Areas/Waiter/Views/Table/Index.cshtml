@@ -1,0 +1,54 @@
+﻿@model List<DataAccess.Entity.Table>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Waiter/Views/Shared/_WaiterLayout.cshtml";
+}
+
+<main class="body-content">
+    <div class="ms-content-wrapper box">
+
+        <div class="row">
+            <div class="col-md-9">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="~/Waiter/Home"><i class="material-icons">home</i> AnaSayfa</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Masa</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-md-3">
+                <a class="btn btn-primary float-right" href="~/Waiter/Table/AddTable">Masa Aç</a>
+            </div>
+
+            @foreach (var table in Model)
+            {
+                if (table.CloseDate.Year == 0001)
+                {
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="ms-card">
+                            <div class="ms-card-img">
+                                <h5 class="text-center"> Masa Numarası</h5>
+                            </div>
+                            <div class="ms-card-img">
+                                <h3 class="text-center">   @table.TableNo</h3>
+                            </div>
+                            <div class="ms-card-body ">
+                                <div class="wrapper-new1">
+                                    <a class="text-center"><strong>Masa Açılma Tarihi:</strong>  @table.CreatedDate </a>
+                                </div>
+                                <a href="~/Waiter/Order/AddOrder/@table.Id" class="btn btn-gradient-info btn-md ">Sipariş Gir</a>
+                                <a href="~/Waiter/Table/PayTable/@table.Id" class="btn btn-danger btn-md float-right">Masayı Kapat(Ödeme Al)</a>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+
+        </div>
+
+    </div>
+
+</main>
+

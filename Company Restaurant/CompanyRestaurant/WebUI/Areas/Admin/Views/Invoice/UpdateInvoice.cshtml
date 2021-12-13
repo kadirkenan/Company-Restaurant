@@ -1,0 +1,75 @@
+﻿@model DataAccess.Entity.CustomerOrder
+@{
+    ViewData["Title"] = "UpdateInvoice";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<body class="ms-body ms-aside-left-open ms-primary-theme ms-has-quickbar">
+    <main class="body-content">
+        <div class="ms-panel-header">
+            <h6>@Model.TableNo BİLGİLERİ</h6>
+            <a class="btn btn-primary float-right" href="~/Admin/Order/Index">Faturalandırma Menü --></a>
+        </div>
+        <div class="ms-panel-body">
+            <div class="card">
+                <form asp-action="GetOrder" method="POST">
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <div class="col-md-12 mb-2">
+                                <label asp-for="CompanyName"><strong>  Sipariş Numarası:</strong></label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                @Html.TextBoxFor(x => x.Id, new { @class = "form-control", type = "text" })
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="col-md-12 mb-2 float-right">
+                                <label asp-for="ContactName"><strong>  Tarih:</strong></label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                @Html.TextBoxFor(x => x.CreatedDate, new { @class = "form-control", type = "date" })
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="col-md-12 mb-2">
+                                <label asp-for="ContactTitle"><strong>  Masa Numarası:</strong></label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                @Html.TextBoxFor(x => x.TableNo, new { @class = "form-control", type = "date" })
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="col-md-12 mb-2">
+                                <label asp-for="Phone"><strong>  Personel:</strong></label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                @Html.TextBoxFor(x => x.Employee.FirstName, new { @class = "form-control", type = "date" }) @Html.TextBoxFor(x => x.Employee.LastName, new { @class = "form-control", type = "date" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <div class="col-md-12 mb-2">
+                                <label asp-for="Fax"><strong>  Siparişler:</strong></label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                @Html.TextBoxFor(x => x.MenuProducts, new { @class = "form-control", type = "date" })
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="col-md-12 mb-2">
+                                <label asp-for="Adress"><strong>  TUTAR:</strong></label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                @Html.TextBoxFor(x => x.Price, new { @class = "form-control", type = "date" })
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </main>
+
+
+</body>

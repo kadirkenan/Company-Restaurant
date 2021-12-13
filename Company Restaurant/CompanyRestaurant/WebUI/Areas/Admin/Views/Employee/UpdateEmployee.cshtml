@@ -1,0 +1,100 @@
+﻿@model DataAccess.Entity.Employee
+@{
+    ViewData["Title"] = "UpdateEmployee";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<main class="body-content">
+
+
+    <div class="ms-panel-header">
+        <h6> Personel Bilgilerini Düzenleme Formu</h6>
+        <a class="btn btn-primary float-right" href="~/Admin/Employee/Index">Personel Listesi</a>
+    </div>
+    <div class="ms-panel-body">
+        <form asp-action="UpdateEmployee" method="POST">
+            <div class="form-row">
+                <div class="col-md-12 mb-3">
+                    <label asp-for="IdentityNo">Kimlik Numarası</label>
+                    @Html.TextBoxFor(x => x.IdentityNo, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="FirstName">Personel Adı</label>
+                    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="LastName">Personel Soyadı</label>
+                    @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="Title">Görev</label>
+                    @Html.DropDownListFor(x => x.Title, new List<SelectListItem>
+                       {
+                       new SelectListItem {Text=Model.Title},
+                       new SelectListItem { Text=@DataAccess.Enum.Title.Aşçı.ToString() },
+                       new SelectListItem { Text=@DataAccess.Enum.Title.Garson.ToString() },
+                       new SelectListItem { Text=@DataAccess.Enum.Title.Depo_Görevlisi.ToString() }
+                       },
+                       new { @class = "form-control" })
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="TitleOfCourtesy">Cinsiyet</label>
+                    @Html.DropDownListFor(x => x.TitleOfCourtesy, new List<SelectListItem>
+                       {
+                       new SelectListItem {Text=Model.Title},
+                       new SelectListItem { Text=@DataAccess.Enum.TitleofCourtesy.Mrs.ToString() },
+                       new SelectListItem { Text=@DataAccess.Enum.TitleofCourtesy.Mr.ToString() }
+                       },
+                       new { @class = "form-control" })
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="BirthDate">Doğum Tarihi</label>
+                    @Html.TextBoxFor(x => x.BirthDate.Date   , new { @class = "form-control", type = "datetime" })
+
+                   
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="HomePhone">Telefon Numarası</label>
+                    @Html.TextBoxFor(x => x.HomePhone, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="Email">Mail Adres</label>
+                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="Adress">Adres</label>
+                    @Html.TextBoxFor(x => x.Adress, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="Country">Ülke</label>
+                    @Html.TextBoxFor(x => x.Country, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="City">Şehir</label>
+                    @Html.TextBoxFor(x => x.City, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="PostalCode">Posta Kodu</label>
+                    @Html.TextBoxFor(x => x.PostalCode, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="Picture">Personel Fotoğrafı</label>
+                    <div class="custom-file">
+                        @if (Model.Photo == null)
+                        {
+                            <input name="Picture" type="file" class="form-control" />
+                        }
+                        else
+                        {
+                            @Html.TextBoxFor(x => x.Photo, new { @class = "form-control", type = "file" })
+                        }
+                    </div>
+                </div>
+                <button class="btn btn-primary float-end" type="submit">Güncelle</button>
+
+            </div>
+        </form>
+
+    </div>
+
+</main>
+

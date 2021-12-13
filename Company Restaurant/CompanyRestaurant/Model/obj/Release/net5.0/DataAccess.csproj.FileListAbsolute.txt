@@ -1,0 +1,15 @@
+D:\Kadir\Company Restaurant\CompanyRestaurant\Model\bin\Release\net5.0\DataAccess.deps.json
+D:\Kadir\Company Restaurant\CompanyRestaurant\Model\bin\Release\net5.0\DataAccess.runtimeconfig.json
+D:\Kadir\Company Restaurant\CompanyRestaurant\Model\bin\Release\net5.0\DataAccess.runtimeconfig.dev.json
+D:\Kadir\Company Restaurant\CompanyRestaurant\Model\bin\Release\net5.0\DataAccess.dll
+D:\Kadir\Company Restaurant\CompanyRestaurant\Model\bin\Release\net5.0\ref\DataAccess.dll
+D:\Kadir\Company Restaurant\CompanyRestaurant\Model\bin\Release\net5.0\DataAccess.pdb
+D:\Kadir\Company Restaurant\CompanyRestaurant\Model\obj\Release\net5.0\DataAccess.csproj.AssemblyReference.cache
+D:\Kadir\Company Restaurant\CompanyRestaurant\Model\obj\Release\net5.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kadir\Company Restaurant\CompanyRestaurant\Model\obj\Release\net5.0\DataAccess.AssemblyInfoInputs.cache
+D:\Kadir\Company Restaurant\CompanyRestaurant\Model\obj\Release\net5.0\DataAccess.AssemblyInfo.cs
+D:\Kadir\Company Restaurant\CompanyRestaurant\Model\obj\Release\net5.0\DataAccess.csproj.CoreCompileInputs.cache
+D:\Kadir\Company Restaurant\CompanyRestaurant\Model\obj\Release\net5.0\DataAccess.dll
+D:\Kadir\Company Restaurant\CompanyRestaurant\Model\obj\Release\net5.0\ref\DataAccess.dll
+D:\Kadir\Company Restaurant\CompanyRestaurant\Model\obj\Release\net5.0\DataAccess.pdb
+D:\Kadir\Company Restaurant\CompanyRestaurant\Model\obj\Release\net5.0\DataAccess.genruntimeconfig.cache

@@ -1,0 +1,23 @@
+﻿@model DataAccess.Entity.Supplier
+@{
+    ViewData["Title"] = "DeleteSupplier";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main class="body-content ">
+    <div class="container">
+        <div class="form-row">
+            <div class="panel">
+                <div class="alert alert-danger">
+                    <form asp-action="DeleteSupplier" method="POST">
+                        <h2>@Model.CompanyName</h2>
+                        <span>Silmek istediğinize emin misiniz?</span>
+                        <button type="submit" class="btn btn-danger"> Evet Sil</button>
+                        <a href="~/Admin/Supplier/Index" class="btn">İptal</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+

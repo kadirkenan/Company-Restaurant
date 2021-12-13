@@ -1,0 +1,75 @@
+﻿@model DataAccess.Entity.StorageProduct
+@{
+    ViewData["Title"] = "UpdateStorageProduct";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main class="body-content">
+
+    <div class="ms-panel-header">
+        <h6> Depo Ürün Düzenleme Formu</h6>
+        <a class="btn btn-primary float-right" href="~/Admin/StorageProduct/Index">Depo Ürünler Listesi</a>
+    </div>
+    <div class="ms-panel-body">
+        <form asp-action="UpdateStorageProduct" method="POST">
+            <div class="form-row">
+                <div class="col-md-12 mb-3">
+                    <label asp-for="StorageProductName">Ürün Adı</label>
+                    @Html.TextBoxFor(x => x.StorageProductName, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="UnitPrice">Fiyat</label>
+                    @Html.TextBoxFor(x => x.UnitPrice, new { @class = "form-control", type = "number" })
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="UnitsInStock">Stok</label>
+                    @Html.TextBoxFor(x => x.UnitsInStock, new { @class = "form-control", type = "number" })
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="QuantityPerUnit">Birim</label>
+                    @Html.DropDownListFor(x => x.QuantityPerUnit, new List<SelectListItem>
+                        {
+                        new SelectListItem {Text=Model.QuantityPerUnit},
+                        new SelectListItem { Text=@DataAccess.Enum.QuantityPerUnit.Kilogram.ToString() },
+                        new SelectListItem { Text=@DataAccess.Enum.QuantityPerUnit.Gram.ToString() },
+                        new SelectListItem { Text=@DataAccess.Enum.QuantityPerUnit.Litre.ToString() },
+                        new SelectListItem { Text=@DataAccess.Enum.QuantityPerUnit.Fıçı.ToString() },
+                        new SelectListItem { Text=@DataAccess.Enum.QuantityPerUnit.Şişe.ToString() },
+                        new SelectListItem { Text=@DataAccess.Enum.QuantityPerUnit.Paket.ToString() },
+                        new SelectListItem { Text=@DataAccess.Enum.QuantityPerUnit.Kutu.ToString() },
+                        new SelectListItem { Text=@DataAccess.Enum.QuantityPerUnit.Teneke.ToString() },
+                        new SelectListItem { Text=@DataAccess.Enum.QuantityPerUnit.Kasa.ToString() }
+                        },
+                        new { @class = "form-control" })
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="StorageCategoryId">Kategori Seçiniz</label>
+                    <div class="input-group">
+                        @Html.DropDownListFor(x => x.StorageCategoryId, (SelectList)ViewBag.Categories, new { @class = " form-control m-bot15" })
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="SupplierId">Tedarikçi Seçiniz</label>
+                    <div class="input-group">
+                        @Html.DropDownListFor(x => x.SupplierId, (SelectList)ViewBag.Supplier, new { @class = " form-control m-bot15" })
+                    </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="ProductImagePath">Ürün Görseli</label>
+                    <div class="custom-file">
+                        @if (Model.ProductImagePath == null)
+                        {
+                            <input name="ProductImagePath" type="file" class="form-control" />
+                        }
+                        else
+                        {
+                            @Html.TextBoxFor(x => x.ProductImagePath, new { @class = "form-control", type = "file" })
+                        }
+                    </div>
+                </div>
+                <button class="btn btn-primary float-end" type="submit">Güncelle</button>
+            </div>
+        </form>
+    </div>
+</main>
+

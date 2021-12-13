@@ -1,0 +1,65 @@
+﻿@model DataAccess.Entity.Prescription
+@{
+    ViewData["Title"] = "UpdatePrescription";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main class="body-content">
+    <div class="ms-panel-header">
+        <h6> Menü Ürün Reçetesi Düzenleme Formu</h6>
+        <a class="btn btn-primary float-right" href="~/Admin/Prescription/Index">Menü Reçete Listesi</a>
+    </div>
+    <div class="ms-panel-body">
+        <form asp-action="AddPrescription" asp-controller="Prescription" method="POST">
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="StorageCategoryId">Menü Adı Seçiniz</label>
+                    <div class="input-group">
+                        @Html.DropDownListFor(x => x.MenuProduct.MenuName, (SelectList)ViewBag.MenuProduct, new { @class = " form-control m-bot15" })
+                    </div>
+                </div>
+                <div>
+                    <label>--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</label>
+                </div>
+                <div class="col-md-12 mb-3">
+
+                    <label for="validationCustom22">1-<strong>Kullanılacak Ürünü Seçiniz</strong></label>
+
+                    @Html.DropDownListFor(x => x.StorageProducts, (SelectList)ViewBag.StorageProduct, new { @class = " form-control m-bot15" })
+
+
+                <div class="container col-12">
+
+                    <label for="validationCustom22"><strong>Kullanılacak Ürünün Miktarını Seçiniz</strong></label>
+                    @Html.DropDownListFor(x => x.Gauges, (SelectList)ViewBag.Gauge, new { @class = " form-control m-bot15" })
+                    <div class="input-group col-3 mb-3">
+                        <select name="Ingridients" class="form-control">
+
+                            @*@Html.DropDownList("Ingridients", EnumHelper.GetSelectList(typeof(MyType)),Model.Ingridients, new { @class = "form-control" })*@
+
+                            <option value="0">@DataAccess.Enum.Ingridients.Adet</option>
+                            <option value="1">@DataAccess.Enum.Ingridients.Yemek_Kaşığı</option>
+                            <option value="2">@DataAccess.Enum.Ingridients.Çay_Kaşığı</option>
+                            <option value="3">@DataAccess.Enum.Ingridients.Su_Bardağı</option>
+                            <option value="4">@DataAccess.Enum.Ingridients.Çay_Bardağı</option>
+                            <option value="5">@DataAccess.Enum.Ingridients.Ml</option>
+                            <option value="6">@DataAccess.Enum.Ingridients.Litre</option>
+                            <option value="7">@DataAccess.Enum.Ingridients.Gram</option>
+                            <option value="8">@DataAccess.Enum.Ingridients.Kilogram</option>
+                            <option value="9">@DataAccess.Enum.Ingridients.Paket</option>
+                        </select>
+                    </div>
+                </div>
+
+                    </div>
+
+                </div>
+
+            
+                <button class="btn btn-primary float-end" type="submit">Kaydet</button>
+            
+           
+        </form>
+    </div>
+</main>
+

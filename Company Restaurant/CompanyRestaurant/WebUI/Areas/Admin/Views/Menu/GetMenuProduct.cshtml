@@ -1,0 +1,57 @@
+﻿@model List<DataAccess.Entity.MenuProduct>
+@{
+    ViewData["Title"] = "GetMenuProduct";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main class="body-content">
+    <div class="ms-content-wrapper box">
+        <form asp-action="GetMenuProduct" method="POST">
+            <div class="form-row">
+                <div class="row">
+                    <div class="col-md-9">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb pl-0">
+                                <li class="breadcrumb-item"><a href="~/Admin/Home"><i class="material-icons">home</i> AnaSayfa</a></li>
+                                <li class="breadcrumb-item"><a href="#">Menus</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Menu Listesi</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="container card-header-pills">
+                        <label> @ViewBag.Categoies.CategoryName</label>
+
+                        @foreach (var item in Model)
+                        {
+                            if (item.MenuCategoryId == ViewBag.Categories.Id)
+                            {
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="ms-card">
+                                        <div class="ms-card-img">
+                                            <img class="catalogPicture" @item.MenuImagePath>
+                                        </div>
+                                        <div class="ms-card-body ">
+                                            <div class="wrapper-new2 ">
+                                                <h6>@item.MenuName</h6>
+
+                                            </div>
+                                            <div class="wrapper-new1">
+                                                <span>@item.Description </span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            }
+                        }
+
+                    </div>
+                </div>
+
+            </div>
+        </form>
+            </div>
+    
+</main>
+

@@ -1,0 +1,50 @@
+﻿@model List<DataAccess.Entity.MenuCategory>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Chef/Views/Shared/_ChefLayout.cshtml";
+}
+
+<main class="body-content">
+    <div class="ms-content-wrapper box">
+
+        <div class="row">
+            <div class="col-md-9">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="~/Chef/Home"><i class="material-icons">home</i> AnaSayfa</a></li>
+                        
+                        <li class="breadcrumb-item active" aria-current="page">Menu Catalog</li>
+                    </ol>
+                </nav>
+            </div>
+            
+
+            @foreach (var menuCategory in Model)
+            {
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="ms-card">
+                        <div class="ms-card-img">
+                            <img class="catalogPicture" src="~/Content/Picture/@menuCategory.Picture">
+                        </div>
+                        <div class="ms-card-body ">
+                            <div class="wrapper-new2 ">
+                                <h6>@menuCategory.CategoryName</h6>
+
+                            </div>
+                            <div class="wrapper-new1">
+                                <span>@menuCategory.Description </span>
+                            </div>
+                            
+
+                        </div>
+                    </div>
+                </div>
+            }
+
+            
+        </div>
+
+    </div>
+
+</main>
+

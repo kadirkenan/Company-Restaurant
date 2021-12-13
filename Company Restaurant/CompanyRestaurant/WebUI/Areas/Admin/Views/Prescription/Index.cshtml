@@ -1,0 +1,51 @@
+﻿@model List<DataAccess.Entity.Prescription>
+@{
+    ViewData["Title"] = "PrescriptionList";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main class="body-content">
+    <div class="ms-content-wrapper">
+        <div class="row">
+            <div class="col-md-9">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="~/Admin/Home"><i class="material-icons">home</i> AnaSayfa</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Menü Reçete Listesi</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-md-3">
+                <a class="btn btn-primary float-right" href="~/Admin/Prescription/AddPrescription">Menü Reçetesi Ekle</a>
+            </div>
+            @foreach (var item in Model)
+            {
+
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="ms-card">
+                        <div class="ms-card-img">
+                            @if (item.MenuProduct != null)
+                            {
+                                <img href="@item.MenuProduct.MenuImagePath"  />
+                               
+                            }
+
+                        </div>
+                        <div class="ms-card-body ">
+                            <div class="wrapper-new2 ">
+                                <h6>@item.MenuProduct.MenuName</h6>
+
+                            </div>
+                            <a href="~/Admin/Prescription/GetPrescription/@item.Id" class="btn btn-primary btn-sm btn-dark d-block">Görüntüle</a>
+                            <div>
+                                <a href="~/Admin/Prescription/UpdatePrescription/@item.Id" class="btn btn-gradient-info btn-md ">Düzenle</a>
+                                <a href="~/Admin/Prescription/DeletePrescription/@item.Id" class="btn btn-danger btn-md float-right">Sil</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</main>
+

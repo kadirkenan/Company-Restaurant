@@ -1,0 +1,21 @@
+﻿@model DataAccess.Entity.CustomerOrder
+@{
+    ViewData["Title"] = "DeleteInvoice";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<main class="body-content ">
+    <div class="container">
+        <div class="form-row">
+            <div class="panel">
+                <div class="alert alert-danger">
+                    <form asp-action="DeleteInvoice" method="POST">
+                        <h2>@Model.CreatedDate @Model.Employee.FirstName @Model.Employee.LastName @Model.TableNo</h2>
+                        <span>Silmek istediğinize emin misiniz?</span>
+                        <button type="submit" class="btn btn-danger"> Evet Sil</button>
+                        <a href="~/Admin/Invoice/Index" class="btn">İptal</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,40 @@
+﻿@model DataAccess.Entity.Table
+@{
+    ViewData["Title"] = "AddTable";
+    Layout = "~/Areas/Waiter/Views/Shared/_WaiterLayout.cshtml";
+}
+
+<main class="body-content">
+
+    <div class="ms-panel-header">
+        <h6> Masa Oluşturma Formu</h6>
+        <a class="btn btn-primary float-right" href="~/Waiter/Table/Index">Açık Masa Listesi</a>
+    </div>
+    <div class="ms-panel-body">
+        <form asp-action="AddTable" asp-controller="Table" method="POST">
+            <div class="form-row">
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Masa Numarası</label>
+                    <input name="TableNo" type="text" class="form-control" placeholder="Masa Numarası giriniz..." />
+                    <div class="valid-feedback">
+                        İyi görünüyor!
+                    </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label>Personel Seçiniz</label>
+                    <div class="input-group">
+                        @Html.DropDownListFor(x => x.EmployeeId, (SelectList)ViewBag.Employee, new { @class = " form-control m-bot15" })
+                    </div>
+                </div>
+
+             
+
+                <button class="btn btn-primary float-end" type="submit">Masa Aç</button>
+
+            </div>
+        </form>
+
+    </div>
+
+</main>
+

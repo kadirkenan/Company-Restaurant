@@ -1,0 +1,68 @@
+﻿@model DataAccess.Entity.CustomerOrder
+@{
+    ViewData["Title"] = "TableUpdate";
+    Layout = "~/Areas/Waiter/Views/Shared/_WaiterLayout.cshtml";
+}
+
+<main class="body-content">
+    <div class="ms-panel-header">
+        <h6>Masa :   Sipariş Bilgileri</h6>
+        <a class="btn btn-primary float-right" href="~/Waiter/Order/Index">Sipariş Listesi</a>
+    </div>
+    <div class="ms-panel-body">
+        <div class="card">
+            <form asp-action="TableUpdate" method="POST">
+                <div class="form-row">
+                    <div class="col-md-12 mb-3">
+                        <label asp-for="TableNo">Masa Numarası</label>
+                        @Html.TextBoxFor(x => x.TableNo, new { @class = "form-control", type = "text" })
+                    </div>
+
+
+
+                    @foreach (var item in ViewBag.Menu)
+                    {
+                        <div class="col-lg-4 col-md-6 col-sm-6 ">
+                            <div class="ms-card">
+                                <div class="ms-card-img">
+                                    <img src="~/hazırcss/assets/img/foodtech/food-1.jpg" alt="card_img" width="350" height="275">
+                                </div>
+                                <div class="ms-card-body ">
+                                    <div class="input-group">
+                                        <div class="wrapper-new2 ">
+                                            <div>
+                                                <h6><strong>@item.MenuName</strong></h6>
+                                                <span>@item.Description</span>
+                                                <button>Fiyat : @item.MenuPrice TL</button>
+                                                <input type="text" name="menuId" value="@item.Id" hidden="hidden" />
+                                                <br />
+                                                <label> Html.CheckBox("Siparis", item.Id) Siparişe Ekle</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+
+                
+                
+
+
+                    <div class="col-md-12 mb-1">
+                        <a href="~/Waiter/Order/UpdateSupplier/@Model.Id" class="btn btn-primary float-right">Düzenle</a>
+
+                    </div>
+
+              </div>
+
+        
+           </form>
+        </div>
+        
+    </div>
+</main>
+
+

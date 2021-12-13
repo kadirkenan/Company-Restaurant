@@ -1,0 +1,80 @@
+﻿@model List<DataAccess.Entity.StorageProduct>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/WarehouseAttendant/Views/Shared/_WarehouseAttendantLayout.cshtml";
+}
+
+<main class="body-content">
+    <div class="ms-content-wrapper">
+        <div class="row">
+            <div class="col-md-9">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="~/WarehouseAttendant/Home"><i class="material-icons">home</i> AnaSayfa</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Depo Ürünleri</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-md-3">
+                <a class="btn btn-primary float-right" href="~/WarehouseAttendant/StorageProduct/AddStorageProduct">Yeni Ürün Ekle</a>
+            </div>
+            <div class="col-md-12">
+                <div class="col-12">
+                    <div class="ms-panel">
+                        <div class="ms-panel-header">
+                            <h6>Depo Ürün Listesi</h6>
+
+                        </div>
+                        <div class="ms-panel-body">
+
+                            <div class="table-responsive">
+                                <table class="table table-hover thead-primary">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Görsel</th>
+                                            <th scope="col">Ürün ID</th>
+                                            <th scope="col">Ürün Adı</th>
+                                            <th scope="col">Fiyat(Alış)</th>
+                                            <th scope="col">Stok</th>
+                                            <th scope="col">Birim</th>
+                                            <th scope="col">Kategori Adı</th>
+                                            <th scope="col">Verilen Sipariş</th>
+                                            <th scope="col"></th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (var storageProduct in Model)
+                                        {
+                                            <tr>
+                                                <th scope="row">@storageProduct.ProductImagePath</th>
+                                                <td><h6>@storageProduct.Id</h6></td>
+                                                <td><h6>@storageProduct.StorageProductName</h6></td>
+                                                <td><h6>@storageProduct.UnitPrice TL</h6></td>
+                                                <td><h6>@storageProduct.UnitsInStock</h6></td>
+                                                <td><h6>@storageProduct.QuantityPerUnit</h6></td>
+                                                <td>@storageProduct.StorageCategory.CategoryName</td>
+                                                <td><h6>@storageProduct.UnitsOnOrder</h6></td>
+                                                <td>
+                                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                                        <a href="~/WarehouseAttendant/Order/UpdateStorageProduct/@storageProduct.Id" class="btn  btn-sm btn-primary">Sipariş Ver</a>
+
+                                                        <a href="~/WarehouseAttendant/StorageProduct/UpdateStorageProduct/@storageProduct.Id" class="btn btn-sm btn-gradient-info  ">Düzenle</a>
+
+
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

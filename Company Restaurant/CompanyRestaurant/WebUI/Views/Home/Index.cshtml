@@ -1,0 +1,63 @@
+﻿@model List<DataAccess.Entity.MenuProduct>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<body class="ms-body ms-aside-left-open ms-primary-theme ms-has-quickbar">
+
+
+    <!-- Main Content -->
+    <main class="body-content">
+        <!-- Body Content Wrapper -->
+        <div class="ms-content-wrapper box">
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb pl-0">
+                            <li class="breadcrumb-item"><a href="~/Home"><i class="material-icons">home</i> Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Menu Catalogue</li>
+                        </ol>
+                    </nav>
+                </div>
+
+
+
+                @foreach (var item in Model)
+                {
+            
+                <div class="col-lg-4 col-md-6 col-sm-6 ">
+                    <div class="ms-card">
+                        <div class="wrapper-new1">
+                            <h5><span><strong class="color-red">@item.MenuCategoryId</strong> </span></h5>
+
+                        </div>
+                        <div class="ms-card-img">
+                            <img src="~/hazırcss/assets/img/foodtech/food-1.jpg" alt="card_img" width="350" height="275">
+                        </div>
+                        <div class="ms-card-body ">
+
+                            <div class="wrapper-new2 text-center">
+                                <h6 ><strong >@item.MenuName</strong></h6>
+                                <span>@item.Description</span>
+                                <button  >Fiyat : @item.MenuPrice TL</button>
+                                
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            
+                        }
+                    </div>
+
+                
+
+        </div>
+
+    </main>
+
+</body>
+
+

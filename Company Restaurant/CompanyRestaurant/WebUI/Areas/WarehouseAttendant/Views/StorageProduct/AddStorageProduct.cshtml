@@ -1,0 +1,68 @@
+﻿@model DataAccess.Entity.StorageProduct
+@{
+    ViewData["Title"] = "AddStorageProduct";
+    Layout = "~/Areas/WarehouseAttendant/Views/Shared/_WarehouseAttendantLayout.cshtml";
+}
+
+<main class="body-content">
+
+    <div class="ms-panel-header">
+        <h6> Depo Ürünü Ekleme Formu</h6>
+        <a class="btn btn-primary float-right" href="~/WarehouseAttendant/StorageProduct/Index">Depo Ürünler Listesi</a>
+    </div>
+    <div class="ms-panel-body">
+        <form asp-action="AddStorageProduct" asp-controller="StorageProduct" method="POST">
+            <div class="form-row">
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Ürün Adı</label>
+                    <input name="StorageProductName" type="text" class="form-control" placeholder="Ürün adını giriniz..." />
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Fiyat</label>
+                    <input name="UnitPrice" type="number" class="form-control" />
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Stok</label>
+                    <input name="UnitsInStock" type="number" class="form-control" />
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label sp-for="QuantityPerUnit">Birim</label>
+                    <div class="input-group">
+                        <select name="QuantityPerUnit" class="form-control">
+                            <option value="0">@DataAccess.Enum.QuantityPerUnit.Kilogram</option>
+                            <option value="1">@DataAccess.Enum.QuantityPerUnit.Gram</option>
+                            <option value="2">@DataAccess.Enum.QuantityPerUnit.Litre</option>
+                            <option value="3">@DataAccess.Enum.QuantityPerUnit.Fıçı</option>
+                            <option value="4">@DataAccess.Enum.QuantityPerUnit.Şişe</option>
+                            <option value="5">@DataAccess.Enum.QuantityPerUnit.Paket</option>
+                            <option value="6">@DataAccess.Enum.QuantityPerUnit.Kutu</option>
+                            <option value="7">@DataAccess.Enum.QuantityPerUnit.Teneke</option>
+                            <option value="8">@DataAccess.Enum.QuantityPerUnit.Kasa</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom22">Kategori Seçiniz</label>
+                    <div class="input-group">
+                        @Html.DropDownListFor(x => x.StorageCategoryId, (SelectList)ViewBag.Categories, new { @class = " form-control m-bot15" })
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom22">Tedarikçi Seçiniz</label>
+                    <div class="input-group">
+                        @Html.DropDownListFor(x => x.SupplierId, (SelectList)ViewBag.Supplier, new { @class = " form-control m-bot15" })
+                    </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom12">Ürün Görseli</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="validatedCustomFile">
+                        <input name="ProductImagePath" type="file" class="form-control" />
+                    </div>
+                </div>
+                <button class="btn btn-primary float-end" type="submit">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</main>
+

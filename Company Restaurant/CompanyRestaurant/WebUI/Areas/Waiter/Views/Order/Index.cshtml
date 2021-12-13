@@ -1,0 +1,99 @@
+﻿@model List<DataAccess.Entity.CustomerOrder>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Waiter/Views/Shared/_WaiterLayout.cshtml";
+}
+
+<main class="body-content">
+    <div class="ms-content-wrapper box">
+
+        <div class="row">
+            <div class="col-md-9">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="~/Waiter/Home"><i class="material-icons">home</i> AnaSayfa</a></li>
+
+                        <li class="breadcrumb-item active" aria-current="page">Siparişler</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-md-3">
+                <a class="btn btn-primary float-right" href="~/Waiter/Order/AddOrder">Sipariş Ekle</a>
+            </div>
+            <div class="col-md-12">
+                <div class="col-12">
+                    <div class="ms-panel">
+                        <div class="ms-panel-header">
+                            <h6> Sipariş Listesi</h6>
+
+                        </div>
+                        <div class="ms-panel-body">
+
+                            <div class="table-responsive">
+                                <table class="table w-100 thead-primary dataTable no-footer" role="grid" style="width: 1099px;">
+                                    <thead>
+                                        <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="data-table-4" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Customer ID: activate to sort column descending" style="width: 156px;">
+                                                Sipariş Numarası
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="data-table-4" rowspan="1" colspan="1" aria-label="Customer Name: activate to sort column ascending" style="width: 196px;">
+                                                Masa Numarası
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="data-table-4" rowspan="1" colspan="1" aria-label="Bill: activate to sort column ascending" style="width: 61px;">
+                                                Fiyat
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="data-table-4" rowspan="1" colspan="1" aria-label="Bill: activate to sort column ascending" style="width: 61px;">
+                                                Siparişler
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="data-table-4" rowspan="1" colspan="1" aria-label="Bill: activate to sort column ascending" style="width: 61px;">
+                                                Tarih
+                                            </th>
+                                            
+                                            <th>Sil</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var order in Model)
+                                        {
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">@order.Id</td>
+                                            <td>Masa : <strong>@order.TableNo</strong></td>
+                                            <td>
+                                                @foreach (var menu in ViewBag.Menu)
+                                                {
+                                                    if (menu.Id == order.MenuId)
+                                                    {
+                                                        @menu.MenuPrice
+                                                    }
+                                                }
+
+                                            </td>
+                                            <td>
+                                                @foreach (var menu in ViewBag.Menu)
+                                                {
+                                                    if (menu.Id == order.MenuId)
+                                                    {
+                                                        @menu.MenuName
+                                                    }
+                                                }
+
+                                            </td>
+                                            <td>@order.CreatedDate</td>
+
+
+                                            
+                                            <td><a href="~/Waiter/Order/DeleteOrder/@order.Id" class="btn btn-danger btn-md float-right">Sil</a></td>
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+
+                </div>
+            </div>
+</main>

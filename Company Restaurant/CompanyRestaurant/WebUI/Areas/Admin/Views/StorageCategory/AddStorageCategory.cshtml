@@ -1,0 +1,35 @@
+﻿@model DataAccess.Entity.StorageCategory
+@{
+    ViewData["Title"] = "AddStorageCategory";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main class="body-content">
+
+    <div class="ms-panel-header">
+        <h6> Kategori Ekleme Formu</h6>
+        <a class="btn btn-primary float-right" href="~/Admin/StorageCategory/Index">Kategori Listesi</a>
+    </div>
+    <div class="ms-panel-body">
+        <form asp-action="AddStorageCategory" asp-controller="StorageCategory" method="POST">
+            <div class="form-row">
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Kategori Adı</label>
+                    <input name="CategoryName" type="text" class="form-control" placeholder="Kategori adını giriniz..." />
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom12">Katalog Görseli</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="validatedCustomFile">
+                        <input name="Picture" type="file" class="form-control" />
+                        <div class="invalid-feedback">Geçersiz özel dosya!</div>
+                    </div>
+                </div>
+                <button class="btn btn-primary float-end" type="submit">Kaydet</button>
+
+            </div>
+        </form>
+
+    </div>
+
+</main>

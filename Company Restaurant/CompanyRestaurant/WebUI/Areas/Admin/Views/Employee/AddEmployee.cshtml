@@ -1,0 +1,99 @@
+﻿@model DataAccess.Entity.Employee
+@{
+    ViewData["Title"] = "AddEmployee";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main class="body-content">
+
+    <div class="ms-panel-header">
+        <h6> Personel Ekleme Formu</h6>
+        <a class="btn btn-primary float-right" href="~/Admin/Employee/Index">Personel Listesi</a>
+    </div>
+    <div class="ms-panel-body">
+        <form asp-action="AddEmployee" asp-controller="Employee" method="POST">
+            <div class="form-row">
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Kimlik Numarası</label>
+                    <input name="IdentityNo" type="text" class="form-control" placeholder="Kimlik Numarasını giriniz..." />
+
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Personel Adı</label>
+                    <input name="FirstName" type="text" class="form-control" placeholder="Personel adını giriniz..." />
+
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Personel Soyadı</label>
+                    <input name="LastName" type="text" class="form-control" placeholder="Personel soyadını giriniz..." />
+
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Title">Personel Görevi</label>
+                    <div class="input-group">
+                        <select name="Title" class="form-control">
+                            <option>@DataAccess.Enum.Title.Aşçı</option>
+                            <option>@DataAccess.Enum.Title.Garson</option>
+                            <option>@DataAccess.Enum.Title.Depo_Görevlisi</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="TitleOfCourtesy">Cinsiyet</label>
+                    <div class="input-group">
+                        <select name="TitleofCourtesy" class="form-control">
+                            <option>@DataAccess.Enum.TitleofCourtesy.Mrs</option>
+                            <option>@DataAccess.Enum.TitleofCourtesy.Mr</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Kullanıcı Adı</label>
+                    <input name="NickName" type="text" class="form-control" placeholder="Kullanıcı adı giriniz..." />
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Doğum Tarihi</label>
+                    <input name="BirthDate" type="datetime" class="form-control"  />
+
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Telefon Numarası</label>
+                    <input name="HomePhone" type="text" class="form-control" placeholder="Telefon numarasını giriniz..." />
+
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Mail Adres</label>
+                    <input name="Email" type="text" class="form-control" placeholder="Mail adresini giriniz..." />
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Adress</label>
+                    <input name="Adress" type="text" class="form-control" placeholder="Adres giriniz..." />
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Ülke</label>
+                    <input name="Country" type="text" class="form-control" placeholder="Yaşadığınız ülke adını giriniz..." />
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Şehir</label>
+                    <input name="City" type="text" class="form-control" placeholder="Yaşadığınız şehir adını giriniz..." />
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom18">Posta Kodu</label>
+                    <input name="PostalCode" type="text" class="form-control" placeholder="Posta kodunu giriniz..." />
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom12">Personel Fotoğrafı</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="validatedCustomFile">
+                        <input name="PhotoPath" type="file" class="form-control" />
+                    </div>
+                </div>
+                <button class="btn btn-primary float-end" type="submit">Kaydet</button>
+
+            </div>
+        </form>
+
+    </div>
+
+</main>
+

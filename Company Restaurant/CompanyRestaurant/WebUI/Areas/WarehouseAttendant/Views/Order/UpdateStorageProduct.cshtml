@@ -1,0 +1,83 @@
+﻿@model DataAccess.Entity.StorageProduct
+@{
+    ViewData["Title"] = "UpdateStorageProduct";
+    Layout = "~/Areas/WarehouseAttendant/Views/Shared/_WarehouseAttendantLayout.cshtml";
+}
+
+<main class="body-content">
+
+    <div class="ms-panel-header">
+        <h6> Depo Ürün Düzenleme Formu</h6>
+        <a class="btn btn-primary float-right" href="~/Admin/StorageProduct/Index">Depo Ürünler Listesi</a>
+    </div>
+    <div class="ms-panel-body">
+        <div class="card">
+            <form asp-action="GetOrder" method="POST">
+                <div class="form-row">
+                    <div class="col-md-12 mb-3">
+                        <div class="col-md-12 mb-2">
+                            <label asp-for="StorageProductName"><strong>  ÜRÜN ADI :</strong></label>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            @Html.ValueFor(x => x.StorageProductName)
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label asp-for="UnitPrice">Fiyat</label>
+                        @Html.TextBoxFor(x => x.UnitPrice, new { @class = "form-control", type = "number" })
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="col-md-12 mb-2">
+                            <label asp-for="UnitsInStock"><strong> STOK :</strong></label>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            @Html.ValueFor(x => x.UnitsInStock)
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label asp-for="UnitsOnOrder" name="orderUnit">Sipariş Edilen Miktar</label>
+                        @Html.TextBoxFor(x => x.UnitsOnOrder, new { @class = "form-control", type = "number" })
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="col-md-12 mb-2">
+                            <label asp-for="QuantityPerUnit"><strong> BİRİM :</strong></label>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            @Html.ValueFor(x => x.QuantityPerUnit)
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="col-md-12 mb-2">
+                            <label asp-for="CategoryName"><strong> KATEGORİ ADI :</strong></label>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            @Html.ValueFor(x => x.StorageCategory.CategoryName)
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="col-md-12 mb-2">
+                            <label asp-for="CompanyName"><h6> TEDARİKÇİ :</h6></label>
+                        </div>
+                        <div class="col-md-12 mb-4">
+                            @Html.ValueFor(x => x.Supplier.CompanyName)
+                        </div>
+                        <div class="col-md-12 mb-4">
+                            <span><strong>@Html.ValueFor(x => x.Supplier.ContactName)   @Html.ValueFor(x => x.Supplier.ContactTitle)</strong></span>
+                        </div>
+                        <div class="col-md-12 mb-4">
+                            <strong>@Html.ValueFor(x => x.Supplier.Phone)</strong>
+                        </div>
+                        <div class="col-md-12 mb-4">
+                            @Html.ValueFor(x => x.Supplier.HomePage)
+                        </div>
+                    </div>
+
+
+                    <button class="btn btn-primary float-end" type="submit">Kaydet</button>
+
+
+                </div>
+            </form>
+        </div>
+    </div>
+</main>

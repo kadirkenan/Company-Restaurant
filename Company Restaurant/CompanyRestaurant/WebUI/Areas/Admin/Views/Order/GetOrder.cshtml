@@ -1,0 +1,92 @@
+﻿@model DataAccess.Entity.CustomerOrder
+@{
+    ViewData["Title"] = "GetOrder";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<main class="body-content">
+    <div class="ms-panel-header">
+        <h6>@Model.TableNo BİLGİLERİ</h6>
+        <a class="btn btn-primary float-right" href="~/Admin/Order/Index">Faturalandırma Menü --></a>
+    </div>
+    <div class="ms-panel-body">
+        <div class="card">
+            <form asp-action="GetOrder" method="POST">
+                <div class="form-row">
+                    <div class="col-md-12 mb-3">
+                        <div class="col-md-12 mb-2">
+                            <label asp-for="CompanyName"><strong>  Sipariş Numarası:</strong></label>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            @Html.ValueFor(x => x.Id)
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="col-md-12 mb-2 float-right">
+                            <label asp-for="ContactName"><strong>  Tarih:</strong></label>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            @Html.ValueFor(x => x.CreatedDate)
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="col-md-12 mb-2">
+                            <label asp-for="ContactTitle"><strong>  Masa Numarası:</strong></label>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            @Html.ValueFor(x => x.TableNo)
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="col-md-12 mb-2">
+                            <label asp-for="Phone"><strong>  Personel:</strong></label>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            @foreach (var employee in ViewBag.Employee)
+                            {
+                                @if(employee.Id== Model.Employee.Id)
+                                {
+                                    
+                                        @Html.ValueFor(x => x.Employee.Nickname)
+                                    
+                                }
+                            }
+
+                           
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <div class="col-md-12 mb-2">
+                            <label asp-for="Fax"><strong>  Siparişler:</strong></label>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            @foreach (var menu in ViewBag.Menu)
+                            {
+                                @if(menu.Id == Model.MenuId)
+                                {
+                                   
+                                    @menu.MenuName                                    
+                                }
+                            }
+                            </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="col-md-12 mb-2">
+                            <label asp-for="Adress"><strong>  TUTAR:</strong></label>
+                        </div>
+                        <div class="col-md-12 mb-2"> 
+                            @Html.ValueFor(x => x.Price)
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-1">
+                        <a href="~/Admin/Supplier/UpdateSupplier/@Model.Id" class="btn btn-primary float-right">YAZDIR</a>
+
+                    </div>
+
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</main>

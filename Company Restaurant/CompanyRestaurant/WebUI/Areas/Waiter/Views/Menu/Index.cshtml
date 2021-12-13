@@ -1,0 +1,63 @@
+﻿ @model List<DataAccess.Entity.MenuProduct>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Waiter/Views/Shared/_WaiterLayout.cshtml";
+}
+
+<main class="body-content">
+    <div class="ms-content-wrapper">
+        <div class="row">
+            <div class="col-md-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="~/Waiter/Home"><i class="material-icons">home</i> AnaSayfa</a></li>
+
+                        <li class="breadcrumb-item active" aria-current="page">Menü</li>
+                    </ol>
+                </nav>
+            </div>
+
+
+            
+                <form asp-action="AddTable" asp-controller="Table" method="POST">
+                    @for (int i = 1; i < 30; i++)
+                    {
+
+
+                        foreach (var menu in Model)
+                        {
+
+                            if (menu.MenuCategoryId == i)
+                            {
+                                <div class="card float-left" style="width: 18rem;" >
+                                    <img src="..." class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">@menu.MenuName</h5>
+                                        <p class="card-text">@menu.Description</p>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">@menu.MenuCategory.CategoryName</li>
+                                        <li class="list-group-item">@menu.MenuPrice TL </li>
+
+
+                                        @if (menu.StockStatus)
+                                        {
+                                            <li class="list-group-item">Mevcut</li>
+                                        }
+                                        else
+                                        {
+                                            <li class="list-group-item"><strong>Şuan Ürün Mevcut Değildir!!!</strong></li>
+                                        }
+
+                                    </ul>
+                                    
+                                </div>
+                            }
+                        }
+
+                    }
+                </form>
+            </div>
+          </div>
+        
+</main>

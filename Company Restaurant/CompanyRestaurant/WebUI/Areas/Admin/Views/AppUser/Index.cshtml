@@ -1,0 +1,89 @@
+﻿@model List<DataAccess.ViewModels.UserRoleVM>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<main class="body-content">   
+    <div class="ms-panel-body">
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-9">
+                        <h3>Kullanıcı Listesi</h3>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="~/Home/Register" class="btn btn-primary float-right">Kullanıcı Ekle</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Kullanıcı Adı</th>
+                            <th>Rol</th>
+                            <th>Mail</th>
+                            <th>Durum</th>
+                            <th>İşlem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var user in Model)
+                        {
+                            <tr>
+                                <td>@user.UserName</td>
+                                <td>
+                                    @{
+                                        <span>@user.RoleName</span>
+                                    }
+                                </td>
+                                <td>@user.Email</td>
+                                <td>
+                                    @{ if (user.IsActive)
+                                        {
+                                            <span class="badge badge-success">Aktif</span> }
+                                        else
+                                        {
+                                            <span class="badge badge-danger">Deaktif</span> }}
+                                </td>
+                                <td>
+                                    @{
+                                        if (user.RoleName == "Admin")
+                                        {
+
+                                        }
+                                        else if (user.RoleName == "Chef")
+                                        {
+                                            <a asp-action="AssingAdmin" asp-controller="AppUser" asp-route-id="@user.Id" class="btn btn-xs btn-primary">Personel Yap</a>
+                                            <a asp-action="AssingAdmin" asp-controller="AppUser" asp-route-id="@user.Id" class="btn btn-xs btn-primary">Depo Görevlisi Yap</a>
+                                        }
+                                        else if (user.RoleName == "Waiter")
+                                        {
+                                            <a asp-action="AssingAdmin" asp-controller="AppUser" asp-route-id="@user.Id" class="btn btn-xs btn-primary">Aşçı Yap</a>
+                                            <a asp-action="AssingAdmin" asp-controller="AppUser" asp-route-id="@user.Id" class="btn btn-xs btn-primary">Depo Görevlisi Yap</a>
+
+                                        }
+                                        else if (user.RoleName == "WarehouseAttendant")
+                                        {
+                                            <a asp-action="AssingAdmin" asp-controller="AppUser" asp-route-id="@user.Id" class="btn btn-xs btn-primary">Aşçı Yap</a>
+                                            <a asp-action="AssingAdmin" asp-controller="AppUser" asp-route-id="@user.Id" class="btn btn-xs btn-primary">Personel Yap</a>
+                                        }
+                                        else
+                                        {
+                                            <a asp-action="AssingAdmin" asp-controller="AppUser" asp-route-id="@user.Id" class="btn btn-xs btn-primary">Admin Yap</a>
+                                            <a asp-action="AssingAdmin" asp-controller="AppUser" asp-route-id="@user.Id" class="btn btn-xs btn-primary">Aşçı Yap</a>
+                                            <a asp-action="AssingAdmin" asp-controller="AppUser" asp-route-id="@user.Id" class="btn btn-xs btn-primary">Personel Yap</a>
+                                            <a asp-action="AssingAdmin" asp-controller="AppUser" asp-route-id="@user.Id" class="btn btn-xs btn-primary">Depo Görevlisi Yap</a>
+                                        }
+                                    }
+                                    
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+</div>
+</main>

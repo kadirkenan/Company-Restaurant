@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "Denied";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="error-page">
+        <h2 class="headline text-warning">
+        401
+        </h2>
+        <div class="error-content">
+            <h3><i class="fas fa-exclamation-triagle text-warning"></i> Oops! Yetkinlendirme Hatası!</h3>
+            <p>
+                Bu alanı <strong>@ViewBag.Url</strong> görüntülemeye yetkiniz bulunmamaktadır. 
+            </p>
+        </div>
+    </div>
+
+</div>
+

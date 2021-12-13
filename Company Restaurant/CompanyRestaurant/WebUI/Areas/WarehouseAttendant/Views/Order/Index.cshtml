@@ -1,0 +1,81 @@
+﻿@model List<DataAccess.Entity.StorageProduct>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/WarehouseAttendant/Views/Shared/_WarehouseAttendantLayout.cshtml";
+}
+
+
+<main class="body-content">
+    <div class="ms-content-wrapper">
+        <div class="row">
+            <div class="col-md-9">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="~/WarehouseAttendant/Home"><i class="material-icons">home</i> AnaSayfa</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Depo Ürün Siparişleri</li>
+                    </ol>
+                </nav>
+            </div>
+            
+            <div class="col-md-12">
+                <div class="col-12">
+                    <div class="ms-panel">
+                        <div class="ms-panel-header">
+                            <h6>Depo Ürün Sipariş Listesi</h6>
+
+                        </div>
+                        <div class="ms-panel-body">
+
+                            <div class="table-responsive">
+                                <table class="table table-hover thead-primary">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Görsel</th>
+                                            <th scope="col">Ürün ID</th>
+                                            <th scope="col">Ürün Adı</th>
+                                            <th scope="col">Fiyat(Alış)</th>
+                                            <th scope="col">Stok</th>
+                                            <th scope="col">Birim</th>
+                                            <th scope="col">Kategori Adı</th>
+                                            <th scope="col">Verilen Sipariş</th>
+                                            <th scope="col"></th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (var product in Model)
+                                        {
+                                            if (product.UnitsOnOrder > 0)
+                                            {
+                                                <tr>
+                                                    <th scope="row">@product.ProductImagePath</th>
+                                                    <td><h6>@product.Id</h6></td>
+                                                    <td><h6>@product.StorageProductName</h6></td>
+                                                    <td><h6>@product.UnitPrice TL</h6></td>
+                                                    <td><h6>@product.UnitsInStock</h6></td>
+                                                    <td><h6>@product.QuantityPerUnit</h6></td>
+                                                    <td>@product.StorageCategory.CategoryName</td>
+                                                    <td><h6>@product.UnitsOnOrder</h6></td>
+                                                    <td>
+                                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                                            <a href="~/WarehouseAttendant/StorageProduct/UpdateStorageProduct/@product.Id" class="btn btn-sm btn-gradient-info  ">Ürün Teslim Alındı</a>
+
+
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+

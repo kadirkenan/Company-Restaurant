@@ -1,0 +1,41 @@
+﻿@model DataAccess.Entity.StorageCategory
+@{
+    ViewData["Title"] = "UpdateStorageCategory";
+    Layout = "~/Areas/WarehouseAttendant/Views/Shared/_WarehouseAttendantLayout.cshtml";
+}
+
+<main class="body-content">
+
+    <div class="ms-panel-header">
+        <h6> Kategori Düzenleme Formu</h6>
+        <a class="btn btn-primary float-right" href="~/WarehouseAttendant/StorageCategory/Index">Katalog Listesi</a>
+    </div>
+    <div class="ms-panel-body">
+        <form asp-action="UpdateStorageCategory" method="POST">
+            <div class="form-row">
+                <div class="col-md-12 mb-3">
+                    <label asp-for="CategoryName">Kategori Adı</label>
+                    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="Picture">Katalog Görseli</label>
+                    <div class="custom-file">
+                        @if (Model.Picture == null)
+                        {
+                            <input name="Picture" type="file" class="form-control" />
+                        }
+                        else
+                        {
+                            @Html.TextBoxFor(x => x.Picture, new { @class = "form-control", type = "file" })
+                        }
+                    </div>
+                </div>
+                <button class="btn btn-primary float-end" type="submit">Güncelle</button>
+
+            </div>
+        </form>
+
+    </div>
+
+</main>
+

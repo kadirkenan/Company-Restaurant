@@ -1,0 +1,99 @@
+﻿@model DataAccess.Entity.MenuProduct
+@{
+    ViewData["Title"] = "UpdateMenuProduct";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<main class="body-content">
+    <div class="ms-content-wrapper">
+        <div class="row">
+            <div class="col-md-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="~/Admin/Home"><i class="material-icons">home</i> Anasayfa</a></li>
+                        <li class="breadcrumb-item"><a href="~/Admin/Menu/Index">Menu</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Menü Ürünü Düzenle</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-xl-6 col-md-12">
+                <div class="ms-panel ms-panel-fh">
+                    <div class="ms-panel-header">
+                        <h6>Menü Düzenleme Formu</h6>
+                    </div>
+                    <div class="ms-panel-body">
+                        <form asp-action="UpdateMenuProduct" method="post">
+                            <div class="form-row">
+                                <div class="col-md-12 mb-3">
+                                    <label asp-for="MenuName">Ürün Adı</label>
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(x => x.MenuName, new { @class = "form-control", type = "text" })
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label asp-for="MenuCategoryId">Kategori Seçiniz</label>
+                                    <div class="input-group">
+                                        @Html.DropDownListFor(x => x.MenuCategoryId, (SelectList)ViewBag.Categories, new { @class = " form-control m-bot15" })
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label asp-for="MenuPrice">Fiyat</label>
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(x => x.MenuPrice, new { @class = "form-control", type = "text" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label asp-for="Description">Açıklama</label>
+                                    <div class="input-group">
+                                        @Html.TextAreaFor(x => x.Description, new { @class = "form-control", type = "textarea" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label asp-for="StorageProductUnits">Kullanılacak Malzeme sayısı</label>
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(x => x.StorageProductUnits, new { @class = "form-control", type = "text" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label asp-for="validationCustom12">Reçete</label>
+                                    <div class="input-group">
+                                        <textarea name="" rows="5" id="validationCustom12" class="form-control" placeholder="Ürün yapılışını yazınız..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label asp-for="MenuImagePath">Ürün Görseli</label>
+                                    <div class="custom-file">
+                                        @if (Model.MenuImagePath == null)
+                                        {
+                                            <input name="MenuImagePath" type="file" class="form-control" />
+                                        }
+                                        else
+                                        {
+                                            @Html.TextBoxFor(x => x.MenuImagePath, new { @class = "form-control", type = "file" })
+                                        }
+                                    </div>
+
+                                </div>
+                                <div class="ms-panel-header new">
+                                    <label class="btn btn-outline-primary" for="btn-check-outlined">
+                                        @Html.CheckBoxFor(x => x.StockStatus, new { @class = "form-control", type = "checkbox", id = "btn-check-outlined btn-sm", autocomplete = "off" }) Listeye Eklensin mi?
+
+                                    </label>
+                                </div>
+
+
+
+                            </div>
+
+                            <button class="btn btn-primary float-end" type="submit">Güncelle</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>

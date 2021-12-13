@@ -1,0 +1,66 @@
+﻿@model List<DataAccess.Entity.MenuProduct>
+@{
+    ViewData["Title"] = "AddOder";
+    Layout = "~/Areas/Waiter/Views/Shared/_WaiterLayout.cshtml";
+}
+
+
+<main class="body-content">
+    <div class="ms-panel-header">
+        <h6> Sipariş Formu</h6>
+    </div>
+    <div class="ms-panel-body">
+        <form asp-action="AddOrder" asp-controller="Order" method="POST">
+            <div class="form-row">
+                <div class="col-md-12 mb-3">
+                    <label class="text-center">Masa Numarası Seçiniz</label>
+                    <div class="input-group">
+                        <select class="col-md-3" name="masaId" >
+                            @foreach (var item in ViewBag.Table)
+                            {
+                                <option value="@item.Id">Masa Numarası : @item.TableNo</option>
+                            }
+                        </select>
+
+                    </div>
+                    <a class="btn btn-primary float-right" href="~/Waiter/Table/AddTable">Masa Açma</a>
+                </div>
+                
+                @foreach (var item in Model){
+                    <div class="col-lg-4 col-md-6 col-sm-6 ">
+                        <div class="ms-card">
+                            <div class="ms-card-img">
+                                <img src="~/hazırcss/assets/img/foodtech/food-1.jpg" alt="card_img" width="350" height="275">
+                            </div>
+                            <div class="ms-card-body ">
+                                <div class="input-group">
+                                    <div class="wrapper-new2 ">
+                                        <div >
+                                            <h6><strong >@item.MenuName</strong></h6>
+                                            <span >@item.Description</span>
+                                            <button >Fiyat : @item.MenuPrice TL</button>
+                                            <input type="text" name="menuId" value="@item.Id" hidden="hidden" />
+                                            <br />
+                                            <label > @Html.CheckBox("Siparis", @item.Id) Siparişe Ekle</label>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                 }
+
+            </div>
+
+            <button class="btn btn-secondary float-right" type="submit">Sipariş Oluştur</button>
+
+        </form>
+
+    </div>
+
+</main>
+
+
+
